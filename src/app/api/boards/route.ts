@@ -1,0 +1,30 @@
+import { prisma } from '@/lib/prisma';
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const boards = await prisma.board.findMany({
+    include: { cards: true },
+    orderBy: { createdAt: 'desc' },
+  });
+  return NextResponse.json(boards);
+}
+
+export async function POST(req: Request) {
+  const data = await req.json();
+  const { title, category, author, imageUrl } = data;
+
+  if (!title || !category) {
+    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+  }
+
+  const newBoard = await prisma.board.create({
+    data: {
+      title,
+      category,
+      author,
+      imageUrl,
+    },
+  });
+
+  return NextResponse.json(newBoard, { status: 201 });
+}

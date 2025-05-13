@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Board {
+  id        Int      @id @default(autoincrement())
+  title     String
+  category  Category
+  author    String?
+  imageUrl  String?  // Add the imageUrl field (optional)
+  createdAt DateTime @default(now())
+  cards     Card[]
+}
+
+model Card {
+  id        Int      @id @default(autoincrement())
+  message   String
+  gifUrl    String
+  author    String?
+  upvotes   Int      @default(0)
+  createdAt DateTime @default(now())
+  board     Board    @relation(fields: [boardId], references: [id])
+  boardId   Int
+}
+
+enum Category {
+  CELEBRATION
+  THANK_YOU
+  INSPIRATION
+}
