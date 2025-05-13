@@ -7,12 +7,11 @@ import { CategoryButtons } from '@/components/CategoryButtons';
 export default function HomePage() {
   const [boards, setBoards] = useState([]);
   const [search, setSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredBoards, setFilteredBoards] = useState([]);
 
-  // Categories for filtering
   const categories = ['All', 'Recent', 'Celebration', 'Thank You', 'Inspiration'];
 
-  // Fetch boards from the backend API
   useEffect(() => {
     const fetchBoards = async () => {
       const response = await fetch('/api/boards');
@@ -24,28 +23,30 @@ export default function HomePage() {
     fetchBoards();
   }, []);
 
-  // Handle search filtering
+  // Update filtered boards when search or category changes
   useEffect(() => {
-    if (!search) {
-      setFilteredBoards(boards);
-    } else {
-      setFilteredBoards(
-        boards.filter((board) =>
-          board.title.toLowerCase().includes(search.toLowerCase())
-        )
+    let updated = [...boards];
+
+    if (selectedCategory !== 'All' && selectedCategory !== 'Recent') {
+      updated = updated.filter((board) =>
+        board.category.toLowerCase().replace('_', ' ') === selectedCategory.toLowerCase()
       );
     }
-  }, [search, boards]);
+
+    if (search) {
+      updated = updated.filter((board) =>
+        board.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    setFilteredBoards(updated);
+  }, [search, selectedCategory, boards]);
 
   return (
     <div className="home-page px-4 py-6 max-w-6xl mx-auto">
-      {/* Search Bar */}
+      {/* Search */}
       <section className="search mb-6">
-        <label htmlFor="search-input" className="sr-only">
-          Search Boards
-        </label>
         <input
-          id="search-input"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -54,20 +55,21 @@ export default function HomePage() {
         />
       </section>
 
-      {/* Categories */}
-      <CategoryButtons categories={categories} />
+      {/* Category Buttons */}
+      <CategoryButtons
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
 
       {/* Create Button */}
-      <div className="center-button-container text-center mb-8">
-        <button
-          className="button-common create-brd-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
-          aria-label="Create a new board"
-        >
+      <div className="text-center mb-8">
+        <button className="button-common create-brd-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">
           Create a New Board
         </button>
       </div>
 
-      {/* Boards Grid */}
+      {/* Boards */}
       <BoardGrid boards={filteredBoards} />
     </div>
   );
