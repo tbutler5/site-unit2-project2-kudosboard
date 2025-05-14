@@ -14,6 +14,10 @@ export default function HomePage() {
 
   const categories = ['All', 'Recent', 'Celebration', 'Thank You', 'Inspiration'];
 
+  const handleBoardDelete = (id: number) => {
+    setBoards(prev => prev.filter(board => board.id !== id));
+  };
+
   useEffect(() => {
     const fetchBoards = async () => {
       const response = await fetch('/api/boards');
@@ -81,7 +85,7 @@ export default function HomePage() {
       )}
 
       {/* Boards */}
-      <BoardGrid boards={filteredBoards} />
+      <BoardGrid boards={filteredBoards} onDelete={handleBoardDelete} />
     </div>
   );
 }

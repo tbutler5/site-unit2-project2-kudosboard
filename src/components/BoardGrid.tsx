@@ -8,10 +8,28 @@ type Board = {
 };
 
 type BoardGridProps = {
-  boards: Board[];
+  boards: Board[];  
+  onDelete: (id: number) => void;
 };
 
-export const BoardGrid = ({ boards }: BoardGridProps) => {
+export const BoardGrid = ({ boards, onDelete }: BoardGridProps) => {
+  const handleDelete = async (id: number) => {
+    try {
+      const res = await fetch(`/api/boards/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (res.ok) {
+        onDelete(id); // Call parent to update UI
+      } else {
+        const data = await res.json();
+        alert(data.error || 'Error deleting board');
+      }
+    } catch (err) {
+      alert('Network error');
+    }
+  };
+
   return (
     <section className="board-grid grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {boards.map((board) => (
@@ -41,6 +59,7 @@ export const BoardGrid = ({ boards }: BoardGridProps) => {
               <span className="text-white">View Board</span>
             </Link>
             <button
+              onClick={() => handleDelete(board.id)}
               className="button-common delete-board text-red-600 hover:underline text-sm"
               aria-label="Delete this board"
             >
