@@ -36,9 +36,9 @@ export const BoardGrid = ({ boards }: BoardGridProps) => {
           <div className="flex justify-between items-center gap-2">
             <Link
               href={`/boards/${board.id}`}
-              className="button-common view-board bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 text-sm"
+              className="button-common view-board bg-blue-600 px-3 py-1.5 rounded hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 text-sm"
             >
-              View Board
+              <span className="text-white">View Board</span>
             </Link>
             <button
               className="button-common delete-board text-red-600 hover:underline text-sm"
