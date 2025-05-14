@@ -4,13 +4,12 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const boards = await prisma.board.findMany({
     include: { cards: true },
-    orderBy: { createdAt: 'desc' },
+    orderBy: { createdAt: 'asc' },
   });
   return NextResponse.json(boards);
 }
 
 export async function POST(req: Request) {
-  console.log('[POST /api/boards] Request:', req);
   try {
     const data = await req.json();
     const { title, category, author, imageUrl } = data;
@@ -30,7 +29,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json(newBoard, { status: 201 });
   } catch (error) {
-    console.error('[POST /api/boards] Error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

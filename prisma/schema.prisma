@@ -19,6 +19,7 @@ model Board {
 
 model Card {
   id        Int      @id @default(autoincrement())
+  title     String
   message   String
   gifUrl    String
   author    String?

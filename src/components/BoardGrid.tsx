@@ -4,7 +4,7 @@ type Board = {
   id: number;
   title: string;
   category: string;
-  imageUrl?: string; // Optional image URL
+  imageUrl?: string;
 };
 
 type BoardGridProps = {
@@ -20,7 +20,7 @@ export const BoardGrid = ({ boards, onDelete }: BoardGridProps) => {
       });
 
       if (res.ok) {
-        onDelete(id); // Call parent to update UI
+        onDelete(id); 
       } else {
         const data = await res.json();
         alert(data.error || 'Error deleting board');

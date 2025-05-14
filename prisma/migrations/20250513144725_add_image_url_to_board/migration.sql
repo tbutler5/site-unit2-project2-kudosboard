@@ -11,6 +11,7 @@ CREATE TABLE "Board" (
 -- CreateTable
 CREATE TABLE "Card" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL DEFAULT '',
     "message" TEXT NOT NULL,
     "gifUrl" TEXT NOT NULL,
     "author" TEXT,

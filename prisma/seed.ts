@@ -49,6 +49,7 @@ async function main() {
     for (let j = 0; j < cardCount; j++) {
       await prisma.card.create({
         data: {
+          title: `Card Title ${j + 1}`,
           message: inspirationalMessages[Math.floor(Math.random() * inspirationalMessages.length)],
           gifUrl: gifUrls[Math.floor(Math.random() * gifUrls.length)],
           boardId: board.id,

@@ -10,7 +10,7 @@ export default function HomePage() {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredBoards, setFilteredBoards] = useState([]);
-  const [showModal, setShowModal] = useState(false); // modal state
+  const [showModal, setShowModal] = useState(false); 
 
   const categories = ['All', 'Recent', 'Celebration', 'Thank You', 'Inspiration'];
 
@@ -29,7 +29,6 @@ export default function HomePage() {
     fetchBoards();
   }, []);
 
-  // Update filtered boards when search or category changes
   useEffect(() => {
     let updated = [...boards];
 
