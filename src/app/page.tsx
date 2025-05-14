@@ -3,12 +3,14 @@
 import { useEffect, useState } from 'react';
 import { BoardGrid } from '@/components/BoardGrid';
 import { CategoryButtons } from '@/components/CategoryButtons';
+import { NewBoardModal } from '@/components/NewBoardModal';
 
 export default function HomePage() {
   const [boards, setBoards] = useState([]);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [filteredBoards, setFilteredBoards] = useState([]);
+  const [showModal, setShowModal] = useState(false); // modal state
 
   const categories = ['All', 'Recent', 'Celebration', 'Thank You', 'Inspiration'];
 
@@ -62,12 +64,21 @@ export default function HomePage() {
         onCategoryChange={setSelectedCategory}
       />
 
-      {/* Create Button */}
       <div className="text-center mb-8">
-        <button className="button-common create-brd-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">
+        <button
+          onClick={() => setShowModal(true)}
+          className="button-common create-brd-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow"
+        >
           Create a New Board
         </button>
       </div>
+
+      {showModal && (
+        <NewBoardModal
+          onClose={() => setShowModal(false)}
+          onCreated={(newBoard) => setBoards([newBoard, ...boards])}
+        />
+      )}
 
       {/* Boards */}
       <BoardGrid boards={filteredBoards} />
