@@ -34,11 +34,11 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
   - [x] Users can use a search bar to search for boards by title on the home page.
   - [x] The search bar should include:
     - [x] Text input field
-    - [ ] Submit/Search Button
-    - [ ] Clear Mechanism
+    - [x] Submit/Search Button
+    - [x] Clear Mechanism
   - [x] Boards with a title containing the search query in the text input field are displayed in a grid view when the user:
-    - [ ] Presses the Enter key
-    - [ ] Clicks the Submit/Search button 
+    - [x] Presses the Enter key
+    - [x] Clicks the Submit/Search button 
   - [x] User can delete all text from the text input field. 
   - [x] When all text is cleared from the text input field, all boards are displayed in a grid view
 - [x] **View Board** 
@@ -49,7 +49,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
     - [x] Title (required)
     - [x] Category (required)
     - [x] Author (optional)
-  - [ ] Items listed as required above must have a value to succesffuly create a new board.
+  - [x] Items listed as required above must have a value to succesffuly create a new board.
   - [x] When the board is successfully created, it appears in the grid of boards. 
 - [x] **Delete Board**
   - [x] User can delete boards on the home page. 
@@ -79,9 +79,9 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 - [x] **Delete Card**
   - [x] Users can delete cards.
   - [x] When the user clicks the delete button for a card, the card disappears from the grid of cards. 
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
+- [x] **Deployment**
+  - [x] Website is deployed via Render.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
 
 ####  Stretch Features
 
