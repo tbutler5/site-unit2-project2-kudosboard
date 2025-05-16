@@ -3,16 +3,16 @@ import { prisma } from '@/lib/prisma';
 
 export async function POST(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const cardId = parseInt(params.id);
+  const {id} = await params
 
-  if (isNaN(cardId)) {
+  if (isNaN(parseInt(id))) {
     return NextResponse.json({ error: 'Invalid card ID' }, { status: 400 });
   }
 
   const updatedCard = await prisma.card.update({
-    where: { id: cardId },
+    where: { id: parseInt(id) },
     data: { upvotes: { increment: 1 } },
   });
 

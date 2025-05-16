@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { Board } from '@prisma/client';
 
 type Props = {
   onClose: () => void;
-  onCreated: (newBoard: any) => void;
+  onCreated: (newBoard: Board) => void;
 };
 
 export function NewBoardModal({ onClose, onCreated }: Props) {

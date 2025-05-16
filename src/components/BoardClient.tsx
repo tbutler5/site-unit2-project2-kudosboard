@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 interface Card {
@@ -84,9 +85,9 @@ export function BoardClient({ board: initialBoard }: { board: Board }) {
 
   return (
     <div className="board-page max-w-4xl mx-auto py-6 relative">
-      <a href="/" className="block mb-4 text-blue-500 hover:underline">
+      <Link href="/" className="block mb-4 text-blue-500 hover:underline">
         ← Back to Boards
-      </a>
+      </Link>
 
       <h2 className="text-2xl font-semibold text-center">{board.title} 😄</h2>
 

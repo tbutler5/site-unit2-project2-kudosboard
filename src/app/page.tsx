@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react';
 import { BoardGrid } from '@/components/BoardGrid';
 import { CategoryButtons } from '@/components/CategoryButtons';
 import { NewBoardModal } from '@/components/NewBoardModal';
+import { Board } from '@prisma/client';
 
 export default function HomePage() {
-  const [boards, setBoards] = useState([]);
+  const [boards, setBoards] = useState<Board[]>([]);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [filteredBoards, setFilteredBoards] = useState([]);
+  const [filteredBoards, setFilteredBoards] = useState<Board[]>([]);
   const [showModal, setShowModal] = useState(false); 
 
   const categories = ['All', 'Recent', 'Celebration', 'Thank You', 'Inspiration'];

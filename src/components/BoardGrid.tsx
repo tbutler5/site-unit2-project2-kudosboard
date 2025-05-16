@@ -1,11 +1,5 @@
 import Link from 'next/link';
-
-type Board = {
-  id: number;
-  title: string;
-  category: string;
-  imageUrl?: string;
-};
+import { Board } from '@prisma/client';
 
 type BoardGridProps = {
   boards: Board[];  
@@ -26,7 +20,7 @@ export const BoardGrid = ({ boards, onDelete }: BoardGridProps) => {
         alert(data.error || 'Error deleting board');
       }
     } catch (err) {
-      alert('Network error');
+      alert(err);
     }
   };
 
