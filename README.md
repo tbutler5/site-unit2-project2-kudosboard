@@ -2,7 +2,7 @@
 
 Submitted by: Terrence Butler
 
-Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Kudos Board Deployed Site](https://site-unit2-project2-kudosboard.onrender.com/)
 
 ### Application Features
 
@@ -135,28 +135,30 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+https://www.loom.com/share/b84b77cbb00a40d98c9a194b2e10dfca?sid=06554f3d-9188-4016-9319-be6efa27761a
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, the labs provided a strong foundation for completing the assignment, particularly in understanding the core concepts of React, TypeScript, and working with route handlers in Next.js. The hands-on exercises with Flexbox, DOM manipulation, and form handling helped when implementing interactive components like modals and dynamic boards. However, I felt somewhat unprepared when dealing with advanced TypeScript issues, such as strict typing around null vs undefined, and some nuances in dynamic route handling with the Next.js App Router. These areas required extra debugging and research.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would focus on refining the UI/UX. This includes adding animations, better error handling, and improving mobile responsiveness. I also would have added features like filtering boards by category, real-time updates with optimistic UI, or even user authentication. Additionally, I'd spend more time writing tests for both the frontend and backend to ensure long-term maintainability.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The project demo went smoothly in terms of functionality—I was able to show board creation, deletion, and live updates in real time. The UI was intuitive, and the modal interactions worked without issue. One thing that didn’t go as planned was encountering an unexpected type error just before the demo, which fortunately I managed to work around. During my peer’s demo, I noticed they used next/image for all images, which helped improve performance and layout shift. That’s something I’d like to incorporate next time.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- Prisma
+- Next.js
+- React Hook Form
+- Tailwind CSS
+- Lucide Icons
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+@Ladrillo for the prep work!
